@@ -1,0 +1,130 @@
+apply plugin: 'com.android.application'
+
+def config = rootProject.ext.ver
+def library = rootProject.ext.library
+
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getDefault())
+}
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.www.he"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode config.versionCode
+        versionName config.versionName
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // AS3.0 自定义APK安装包名
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "BaseLibrary-v${variant.versionName}-${releaseTime()}-${variant.buildType.name}.apk"
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(rootProject.ext.keystorePath)
+            storePassword rootProject.ext.keystorePassword
+            keyAlias rootProject.ext.alias
+            keyPassword rootProject.ext.aliasPassword
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    dataBinding {     // 是否开数据绑定
+        enabled = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    // Android 支持库
+    implementation library.appcompat
+    implementation library.constraint
+    implementation library.cardview
+    implementation library.recyclerview
+
+    // 其它库
+    implementation library.TabLayout
+    implementation library.flexbox
+    implementation library.material
+
+    //RxJava2+Retrofit2 网络框架
+    implementation library.okio
+    implementation library.okhttp
+    implementation library.okhttp_logging
+    implementation library.retrofit2
+    implementation library.gson
+    implementation library.retrofit2_gson
+    implementation library.retrofit2_adapter
+    implementation library.rxjava2
+    implementation library.rxandroid
+    implementation library.rxbus3
+    implementation library.rxlifecycle2_components
+    implementation library.multidex
+
+    // 注入
+    implementation library.butterknife
+    annotationProcessor library.butterknife_compiler
+
+    // 屏幕适配
+    api library.autosize
+
+    // 常用工具库
+    api library.circleimageview
+    api library.roundedimageview
+    api library.BaseRecyclerViewAdapterHelper
+    api library.SmartRefreshLayout
+    api library.rxpermissions2
+    api library.logger
+    api library.BaseToolbar
+    api library.StatusBarUtil
+    api library.glide
+    annotationProcessor library.glide_compiler
+
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    //内存泄漏检测
+    debugApi library.leakcanary
+    releaseApi library.leakcanary_noop
+
+    // -----
+    implementation 'net.qiujuer.genius:ui:2.0.0-beta4'
+
+
+}

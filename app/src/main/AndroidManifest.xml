@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.www.he">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--SDCard中创建与删除文件权限-->
+<!--    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>-->
+    <!--向SDCard写入数据权限-->
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".global.App"
+        android:allowBackup="true"
+        android:configChanges="locale|layoutDirection"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/android_p_network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:sharedUserId="android.uid.system"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.WebActivity"></activity>
+        <activity android:name=".ui.activity.FindPwActivity" />
+        <activity android:name=".ui.activity.RegistActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <!--
+
+        -->
+        <!-- 华为等部分机型 刘海屏处理 -->
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:theme="@style/SplashTheme"> <!-- 开始广告页面 -->
+            <meta-data
+                android:name="android.notch_support"
+                android:value="true" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- 主页面 -->
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:configChanges="locale|layoutDirection|keyboard|orientation|screenSize" /> <!-- 其它页面 -->
+        <activity android:name=".ui.activity.GuideActivity" /> <!-- 全面屏适配 声明支持的最大屏幕高宽比 -->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" /> <!-- 今日头条屏幕适配 设计稿宽高dp 默认720x1080分辨率 -->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360" />
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="640" />
+    </application>
+
+</manifest>

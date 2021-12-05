@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/group_1">
+        <item android:title="客户类别管理" />
+    </group>
+
+    <!--<group android:id="@+id/group_2">-->
+    <!--<item-->
+    <!--android:icon="@drawable/ic_movie_white_24dp"-->
+    <!--android:title="@string/movie" />-->
+    <!--<item-->
+    <!--android:icon="@drawable/ic_library_music_white_24dp"-->
+    <!--android:title="@string/music" />-->
+    <!--<item-->
+    <!--android:icon="@drawable/ic_library_books_white_24dp"-->
+    <!--android:title="@string/book" />-->
+    <!--<item-->
+    <!--android:icon="@drawable/ic_fiber_new_white_24dp"-->
+    <!--android:title="@string/newsstand" />-->
+    <!--</group>-->
+
+    <group android:id="@+id/group_3">
+        <item
+            android:id="@+id/nav_new_cust"
+            android:icon="@mipmap/new_cusomer"
+            android:title="新客户" />
+        <item
+            android:id="@+id/nav_vs_cust"
+            android:icon="@mipmap/vs_customer"
+            android:title="有拜访" />
+        <item
+            android:id="@+id/nav_ys_cust"
+            android:icon="@mipmap/ys_customer"
+            android:title="有意向" />
+        <item
+            android:id="@+id/nav_no_cust"
+            android:icon="@mipmap/no_customer"
+            android:title="无意向" />
+        <item
+            android:id="@+id/nav_go_cust"
+            android:icon="@mipmap/go_customer"
+            android:title="供应商" />
+        <item
+            android:id="@+id/nav_old_cust"
+            android:icon="@mipmap/old_customer"
+            android:title="老客户" />
+    </group>
+
+<!--    <item android:title="帮助和反馈" />-->
+<!--    <item android:title="关于" />-->
+
+</menu>
