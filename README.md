@@ -6,33 +6,34 @@
 ![图片2](https://github.com/HQH2017/MvpBase/blob/master/app/src/main/res/drawable-v24/read02.png)
 ![图片3](https://github.com/HQH2017/MvpBase/blob/master/app/src/main/res/drawable-v24/read03.png)
 ---------------------------------------------------  
+包结构说明：  
 bean     ：实体类集合  
-           -  
+            -----  
 di       ：依赖注入  
-           - component  
-           - module  
-           -  
+            - component  
+            - module  
+            -----  
 global   ：全局属性  
-           -  
+            -----  
 http     ：网络请求  
-           -  
+            -----  
 modle    ：mvp模式中的M  
-           -  
+            -----  
 presenter：mvp模式中的P  
-           - contract  
-           -  
+            - contract  
+            -----  
 ui       ：mvp模式中的v (activity,fragment,xml视图)  
-           - activity  
-           - adapter 适配器类集合  
-           - base activity,fragment的基类  
-           - fragment  
-           - main 基类的实现  
-           - widget 一些自定义组件  
-           -  
+            - activity  
+            - adapter 适配器类集合  
+            - base activity,fragment的基类  
+            - fragment  
+            - main 基类的实现  
+            - widget 一些自定义组件  
+            -----  
 utils    ：一些工具类  
-           -  
+            -----  
 view     ：P层的View接口  
-           -  
+            -----  
 ---------------------------------------------------  
 
 TestService.class类接口URL拼接：https://blog.csdn.net/weixin_33805557/article/details/88002977  
