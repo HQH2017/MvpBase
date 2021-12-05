@@ -1,5 +1,5 @@
 #MVP 项目架构#  rxjava2 + retrofit2 + okhttp3 + butterknife  
- (暂时没有加入dagger进行类对象管理) 
+ (暂时没有加入dagger进行类对象管理)  
 开发环境：Android Studio 3.6.3, JDK1.8  
 简介说明：打造一个可以进行快速开发的项目（账号，密码 123456）  
 ![图片0](https://github.com/HQH2017/MvpBase/blob/master/app/src/main/res/drawable-v24/read00.png)
